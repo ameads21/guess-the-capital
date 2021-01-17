@@ -1,0 +1,47 @@
+.qButtons {
+  margin: 5px;
+  animation: button-entrance 3s;
+}
+
+.rows {
+  margin: 0 auto;
+}
+
+#primaryDiv {
+  text-align: center;
+}
+
+@keyframes button-entrance {
+  0% {
+    top: 200px;
+  }
+  50% {
+    margin: 0;
+    opacity: 0;
+    transform: rotate(360deg);
+  }
+  51% {
+    transform: rotate(0deg);
+  }
+  60% {
+    opacity: 1;
+    background-color: blue;
+  }
+  100% {
+    top: 0px;
+  }
+}
+
+img {
+  height: 100px;
+  width: 100px;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 90%;
+  height: 100px;
+  clear: both;
+}
