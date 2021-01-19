@@ -102,7 +102,7 @@ function showQuestion(e, stateDoc) {
       : e.column == 2
       ? `<p>${
           questions[e.column]
-        }</p><img src="/images/part ${imageLocation}/${stateDoc[
+        }</p><img src="./images/part ${imageLocation}/${stateDoc[
           currentQuestionId
         ].name.toLowerCase()}.jpg"/>`
       : e.column == 3
