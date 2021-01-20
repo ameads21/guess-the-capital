@@ -151,18 +151,57 @@ function createUser() {
     newPerson = id;
   }
 
-  console.log(id);
   let newColumn = document.createElement("div");
   newColumn.setAttribute("class", "col");
   newColumn.setAttribute("id", id);
   let userNameBtn = document.createElement("button");
   userNameBtn.innerText = newPerson;
+  userNameBtn.setAttribute("class", "btn btn-info");
   userNameBtn.addEventListener("click", editUser);
-  let addBtn = newColumn.append(userNameBtn);
+  newColumn.append(userNameBtn);
   userRow.append(newColumn);
+  createUserScoreBoard(newColumn.id);
 }
 
 function editUser() {
   let newName = prompt("Please Enter Your Name:", this.innerText);
   this.innerText = newName;
+}
+
+function createUserScoreBoard(id) {
+  let columnId = document.getElementById(id);
+  let newDiv = document.createElement("div");
+  let btnPlus = document.createElement("button");
+  let score = document.createElement("p");
+  let btnMinus = document.createElement("button");
+
+  btnPlus.innerText = "+";
+  score.innerText = 0;
+  btnMinus.innerText = "-";
+
+  newDiv.setAttribute("class", "mt-3");
+  btnPlus.setAttribute("class", "btn-add btn-success ml-3");
+  btnPlus.addEventListener("click", () => {
+    addScore(`${id}Score`);
+  });
+  score.setAttribute("id", `${id}Score`);
+  btnMinus.setAttribute("class", "btn-minus btn-danger mr-3");
+  btnMinus.addEventListener("click", () => {
+    minusScore(`${id}Score`);
+  });
+
+  newDiv.append(score);
+  newDiv.append(btnMinus);
+  newDiv.append(btnPlus);
+  columnId.append(newDiv);
+}
+
+function addScore(id) {
+  let test = document.getElementById(`${id}`);
+  test.innerText = Number(test.innerText) + 100;
+}
+
+function minusScore(id) {
+  let test = document.getElementById(`${id}`);
+  test.innerText = Number(test.innerText) - 100;
 }

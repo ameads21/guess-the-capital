@@ -17,60 +17,62 @@
     <title>Jeopardy!</title>
   </head>
   <body>
-    <div id="topDiv">
-      <h1 class="text-center">GUESS THAT CAPITAL!</h1>
-    </div>
+    <div class="container">
+      <div id="topDiv">
+        <h1 class="text-center">GUESS THAT CAPITAL!</h1>
+      </div>
 
-    <div id="primaryDiv" class="container justify-content-center">
-      <button id="startGame" class="btn btn-primary p-5">First Half</button>
-      <button id="startGame2" class="btn btn-primary p-5">Second Half</button>
-    </div>
+      <div id="primaryDiv" class="justify-content-center">
+        <button id="startGame" class="btn btn-primary p-5">First Half</button>
+        <button id="startGame2" class="btn btn-primary p-5">Second Half</button>
+      </div>
 
-    <!-- Modal -->
-    <div
-      class="modal fade"
-      id="exampleModal"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel"></h5>
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body"></div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-dismiss="modal"
-            >
-              Close
-            </button>
-            <button type="button" id="answerButton" class="btn btn-primary">
-              Answer
-            </button>
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel"></h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body"></div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+              <button type="button" id="answerButton" class="btn btn-primary">
+                Answer
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <footer id="scoreSystem" class="mt-auto float-right">
-      <div class="row" id="userRow"></div>
-      <button id="userCreateBtn" class="float-right btn btn-success">
-        <i class="fas fa-user-plus float-right"></i>
-      </button>
-    </footer>
+      <div id="scoreSystem" class="container-fluid">
+        <button id="userCreateBtn" class="float-right btn btn-success">
+          <i class="fas fa-user-plus float-right"></i>
+        </button>
+        <div class="row" id="userRow"></div>
+      </div>
+    </div>
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
