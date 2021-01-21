@@ -180,7 +180,7 @@ function createUser() {
   if (newPerson == null || newPerson == "") {
     return null;
   }
-  let id = newPerson;
+  let id = newPerson.replace(/\s/g, "");
 
   while (id == null || id == "" || document.getElementById(`${id}`) != null) {
     id = prompt("Please pick a different name");
@@ -207,14 +207,19 @@ function editUser() {
 function createUserScoreBoard(id) {
   let columnId = document.getElementById(id);
   let newDiv = document.createElement("div");
+  let btnDelete = document.createElement("button");
   let btnPlus = document.createElement("button");
   let score = document.createElement("p");
   let btnMinus = document.createElement("button");
 
+  btnDelete.innerText = "X";
   btnPlus.innerText = "+";
   score.innerText = 0;
   btnMinus.innerText = "-";
 
+  btnDelete.setAttribute("class", "btn btn-danger float-right");
+
+  btnDelete.addEventListener("click", removeScoreSystem);
   newDiv.setAttribute("class", "mt-3");
   btnPlus.setAttribute("class", "btn-add btn-success ml-3");
   btnPlus.addEventListener("click", () => {
@@ -225,11 +230,15 @@ function createUserScoreBoard(id) {
   btnMinus.addEventListener("click", () => {
     minusScore(`${id}Score`);
   });
-
+  newDiv.append(btnDelete);
   newDiv.append(score);
   newDiv.append(btnMinus);
   newDiv.append(btnPlus);
   columnId.append(newDiv);
+}
+
+function removeScoreSystem() {
+  this.parentElement.parentElement.remove();
 }
 
 function addScore(id) {

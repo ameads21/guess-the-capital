@@ -7,4 +7,4 @@ const questions = [
   "What is the capital in ",
 ];
 
-const categories = ["Capital", "Images", "Abbreviations", "States", "Capital"];
+const categories = ["Capital", "Images", "Abbreviations", "States", "Capital2"];
