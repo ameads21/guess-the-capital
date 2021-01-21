@@ -28,7 +28,6 @@ function startGame1() {
   }
   states = randomizedStates;
 
-  console.log(randomizedStates);
   while (primaryDiv.firstChild) {
     primaryDiv.removeChild(primaryDiv.firstChild);
   }
@@ -38,6 +37,7 @@ function startGame1() {
   backBtn.addEventListener("click", differentGame);
   backBtn.innerText = "Back";
   topDiv.prepend(backBtn);
+  createCategories();
   createRows(states);
   createButtons(states);
   stateDoc = states;
@@ -62,10 +62,24 @@ function startGame2() {
   backBtn.addEventListener("click", differentGame);
   backBtn.innerText = "Back";
   topDiv.prepend(backBtn);
+  createCategories();
   createRows(states2);
   createButtons(states2);
   stateDoc = states2;
   imageLocation = 2;
+}
+
+function createCategories() {
+  let div = document.querySelector("#categories");
+  let row = document.createElement("div");
+  row.setAttribute("class", "row");
+  for (c in categories) {
+    let topic = document.createElement("h3");
+    topic.setAttribute("class", "col categories");
+    topic.innerText = categories[c];
+    row.append(topic);
+  }
+  div.append(row);
 }
 
 function createRows(stateDoc) {
@@ -142,6 +156,10 @@ function differentGame() {
   while (primaryDiv.firstChild) {
     primaryDiv.removeChild(primaryDiv.firstChild);
   }
+  let div = document.querySelector("#categories");
+  while (div.firstChild) {
+    div.removeChild(div.firstChild);
+  }
   document.querySelector("button").remove();
   let firstBtn = document.createElement("button");
   let secondBtn = document.createElement("button");
@@ -170,7 +188,7 @@ function createUser() {
   }
 
   let newColumn = document.createElement("div");
-  newColumn.setAttribute("class", "col");
+  newColumn.setAttribute("class", "col score-div");
   newColumn.setAttribute("id", id);
   let userNameBtn = document.createElement("button");
   userNameBtn.innerText = newPerson;

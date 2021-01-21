@@ -6,3 +6,5 @@ const questions = [
   "What state has the capital ",
   "What is the capital in ",
 ];
+
+const categories = ["Capital", "Images", "Abbreviations", "States", "Capital"];
