@@ -188,7 +188,7 @@ function createUser() {
   }
 
   let newColumn = document.createElement("div");
-  newColumn.setAttribute("class", "col score-div");
+  newColumn.setAttribute("class", "col-sm-4 col-lg-3 score-div");
   newColumn.setAttribute("id", id);
   let userNameBtn = document.createElement("button");
   userNameBtn.innerText = newPerson;
