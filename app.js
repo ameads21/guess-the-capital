@@ -20,6 +20,15 @@ let stateDoc = null;
 let imageLocation = null;
 
 function startGame1() {
+  let randomizedStates = [];
+  while (states.length !== 0) {
+    let randomIndex = Math.floor(Math.random() * states.length);
+    randomizedStates.push(states[randomIndex]);
+    states.splice(randomIndex, 1);
+  }
+  states = randomizedStates;
+
+  console.log(randomizedStates);
   while (primaryDiv.firstChild) {
     primaryDiv.removeChild(primaryDiv.firstChild);
   }
@@ -36,6 +45,14 @@ function startGame1() {
 }
 
 function startGame2() {
+  let randomizedStates = [];
+  while (states2.length !== 0) {
+    let randomIndex = Math.floor(Math.random() * states2.length);
+    randomizedStates.push(states2[randomIndex]);
+    states2.splice(randomIndex, 1);
+  }
+  states2 = randomizedStates;
+
   while (primaryDiv.firstChild) {
     primaryDiv.removeChild(primaryDiv.firstChild);
   }
@@ -82,7 +99,7 @@ function createButtons(stateDoc) {
       showQuestion(this, stateDoc);
     });
     newBtn.setAttribute("class", `qButtons btn btn-success p-md-4 col`);
-    newBtn.innerText = rowCounter * 100;
+    newBtn.innerText = columnCounter != 2 ? rowCounter * 100 : rowCounter * 200;
     currRow.append(newBtn);
     rowCounter += 1;
   }
@@ -94,7 +111,6 @@ function showQuestion(e, stateDoc) {
   modal.innerHTML = "";
   currentQuestionId = e.id.match(/\d+/);
   columnSelected = e.column;
-  console.log(imageLocation);
 
   modal.innerHTML =
     e.column == 1
@@ -104,7 +120,9 @@ function showQuestion(e, stateDoc) {
           questions[e.column]
         }</p><img src="./images/part ${imageLocation}/${stateDoc[
           currentQuestionId
-        ].name.toLowerCase()}.jpg"/>`
+        ].name
+          .replace(/\s/g, "")
+          .toLowerCase()}-outline.jpg"/>`
       : e.column == 3
       ? `<p>${questions[e.column]} ${stateDoc[currentQuestionId].abbr}</p>`
       : e.column == 4

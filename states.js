@@ -1,16 +1,17 @@
-const states = [
-  {
-    abbr: "AL",
-    name: "Alabama",
-    capital: "Montgomery",
-    img_position: "-5px 0px;",
-  },
+let states = [
   {
     abbr: "AK",
     name: "Alaska",
     capital: "Juneau",
     img_position: "-105px 0px;",
   },
+  {
+    abbr: "AL",
+    name: "Alabama",
+    capital: "Montgomery",
+    img_position: "-5px 0px;",
+  },
+
   {
     abbr: "AZ",
     name: "Arizona",

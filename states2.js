@@ -1,4 +1,4 @@
-const states2 = [
+let states2 = [
   {
     abbr: "MT",
     name: "Montana",
