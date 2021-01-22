@@ -188,12 +188,17 @@ function createUser() {
   }
 
   let newColumn = document.createElement("div");
-  newColumn.setAttribute("class", "col-sm-4 col-lg-3 score-div");
+  let btnDelete = document.createElement("button");
+  btnDelete.innerText = "X";
+  btnDelete.setAttribute("class", "btn-danger float-right btn-delete");
+  btnDelete.addEventListener("click", removeScoreSystem);
+  newColumn.setAttribute("class", "col-md-4 col-lg-2 score-div");
   newColumn.setAttribute("id", id);
   let userNameBtn = document.createElement("button");
   userNameBtn.innerText = newPerson;
-  userNameBtn.setAttribute("class", "btn btn-info");
+  userNameBtn.setAttribute("class", "btn btn-info btn-name");
   userNameBtn.addEventListener("click", editUser);
+  newColumn.append(btnDelete);
   newColumn.append(userNameBtn);
   userRow.append(newColumn);
   createUserScoreBoard(newColumn.id);
@@ -207,19 +212,15 @@ function editUser() {
 function createUserScoreBoard(id) {
   let columnId = document.getElementById(id);
   let newDiv = document.createElement("div");
-  let btnDelete = document.createElement("button");
+
   let btnPlus = document.createElement("button");
   let score = document.createElement("p");
   let btnMinus = document.createElement("button");
 
-  btnDelete.innerText = "X";
   btnPlus.innerText = "+";
   score.innerText = 0;
   btnMinus.innerText = "-";
 
-  btnDelete.setAttribute("class", "btn btn-danger float-right");
-
-  btnDelete.addEventListener("click", removeScoreSystem);
   newDiv.setAttribute("class", "mt-3");
   btnPlus.setAttribute("class", "btn-add btn-success ml-3");
   btnPlus.addEventListener("click", () => {
@@ -230,7 +231,6 @@ function createUserScoreBoard(id) {
   btnMinus.addEventListener("click", () => {
     minusScore(`${id}Score`);
   });
-  newDiv.append(btnDelete);
   newDiv.append(score);
   newDiv.append(btnMinus);
   newDiv.append(btnPlus);
@@ -238,7 +238,7 @@ function createUserScoreBoard(id) {
 }
 
 function removeScoreSystem() {
-  this.parentElement.parentElement.remove();
+  this.parentElement.remove();
 }
 
 function addScore(id) {
